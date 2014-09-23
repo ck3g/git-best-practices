@@ -85,7 +85,7 @@ We could avoid using fast forward for merge and even set is as default behavior 
 The --no-ff flag ensures there will be a merge commit, even if git could do a fast forward merge.
 That picture shows the difference between merges with and without fast forward.
 
-http://i.stack.imgur.com/FMD5h.png
+![no-ff](assets/images/ff-noff.png)
 
 ## What is rebase?
 
@@ -105,7 +105,9 @@ Simpliest use:
 From your branch `git rebase master`.
 Saves all commits made in current branch to temporary area.
 Resets your branch to master state then applies commits one by one from temporary area.
-Complete result would looks like: [rebase picture]
+Complete result would looks like:
+
+![rebase](assets/images/git-rebase.png)
 
 
 Example of `git rebase --interactive (or just -i) commits..range` will start interactive rebasing.
@@ -174,11 +176,23 @@ This is how you can get the result of an external file as your command.
 
 This is my script (To be honest it's 'borrowed' from another guy) that formats logs:
 
-https://github.com/ck3g/dotfiles/blob/master/githelpers
+```
+#!/bin/bash
+
+HASH="%C(yellow)%h%C(reset)"
+RELATIVE_TIME="%C(green)%ar%C(reset)"
+AUTHOR="%C(bold blue)%an%C(reset)"
+REFS="%C(red)%d%C(reset)"
+SUBJECT="%s"
+
+FORMAT="$HASH{$RELATIVE_TIME{$AUTHOR{$REFS $SUBJECT"
+
+git log --graph --pretty="tformat:$FORMAT" $* | column -t -s '{' | less -FXRS
+```
 
 Here is how it looks like in terminal window.
 
-(Add screen here)
+![git l](assets/images/git_log.png)
 
 # Bonus feature
 ## Git Bisect
