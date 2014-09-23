@@ -1,3 +1,5 @@
+# Git: Best Practices
+
 ## Foreword
 
 Many of us are using git in our day-to-day work. I've noticed that some of you (or may be many of you) are using only a few few features of it e.g. `add`, `commit`, `push`, `pull`.
