@@ -183,7 +183,6 @@ git log --graph --pretty="tformat:$FORMAT" $* | column -t -s '{' | less -FXRS
 
 ![git l](assets/images/git_log.png)
 
-# Бонус
 ## git bisect
 
 Одна из моих любимых возможностей, которая ни раз меня выручала. Также мне нравится задавать этот вопрос на интервью.

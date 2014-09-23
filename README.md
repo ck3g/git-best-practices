@@ -194,7 +194,6 @@ Here is how it looks like in terminal window.
 
 ![git l](assets/images/git_log.png)
 
-# Bonus feature
 ## Git Bisect
 
 One of my favorite features that helped me many times. I also enjoy asking about it on job inverviews.
