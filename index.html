@@ -151,14 +151,15 @@
         Позволяет переписывать историию несколькими способами. <br />
         Такими, как: перенос коммитов в начало другой ветки, слияние коммитов и их изменение.
       </p>
-
-      <p class="slide"><code>git rebase master</code></p>
-      <p class="slide"><code>git rebase --interactive commits..range</code></p>
-
+      <div class="slide">
+        <p><code>git rebase master</code></p>
+        <p><img src="git-rebase.png" /></p>
+      </div>
     </section>
 
     <section class="slide">
       <h2>Git Rebase --interactive</h2>
+      <p><code>git rebase --interactive commits..range</code></p>
       <pre>
         <code>
 pick 1fc6c95 Patch A
