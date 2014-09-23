@@ -1,8 +1,3 @@
-## Who am I
-
-I'm working here at Yopeso as Ruby developer. My current project is Aureso.
-Aureso is a Software as a Service for auto dealers.
-
 ## Foreword
 
 Many of us using git in our day-to-day work. I'm noticed that some of you (or may be many of you) just use few features of it.
@@ -18,12 +13,12 @@ Git history it's like contents of the book.
 It helps other people to understand the purpose of each commit.
 What's why your logs should be well named and followed by clear description.
 
-## Some Commit best practices
+## Some Commits best practices
 
   * Commit should contain related changes. Fixing two different bugs should produce two separate commits.
     Small commits make it easier to understand for other team members.
 
-  * Commit often. It will allows you commit only related changes.
+  * Commit often. It will allows you to commit only related changes.
 
   * Don't commit half-done work. This means you should not commit unfinished feature at the end of working day.
     This also does not means you should commit whole huge feature in one commit. Just split it into small chuncks.
@@ -84,7 +79,7 @@ These actions are:
 ## What is fast forward
 
 When you're trying to merge two branches and that merge can be made without conflicts git just
-moves current pointer to the head - this is called "fast forward".
+points current branch to the last commit of target branch - this is called "fast forward".
 We could avoid using fast forward for merge and even set is as default behavior for merge.
 
 ## Merge with --no-ff
@@ -215,7 +210,7 @@ You will probably be confused then bisect provide you commit with failing specs.
 
 ## Afterword
 
-Git is the powerful tool. We all using it on every day basis. Thus it's a good reason to master it.
+Git is a powerful tool. We all using it on every day basis. Thus it's a good reason to master it.
 Try to use these advices in your everyday work. I hope you will like it.
 
 

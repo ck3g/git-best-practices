@@ -19,15 +19,269 @@
   <div class="deck-container">
 
     <section class="slide">
-      <h1>Slide</h1>
+      <h1><small>Git Лучшие практики</small></h1>
     </section>
 
     <section class="slide">
-      <h1>Content</h1>
+      <h1><small>Git <span>Мои</span> Лучшие практики</small></h1>
     </section>
 
     <section class="slide">
-      <h1>Here</h1>
+      <h2>Вступление</h2>
+      <p class="slide">Ваш повседневный набор команд: <code>git commit</code>, <code>git pull</code> и <code>git push</code>?</p>
+      <p class="slide">Вас пугают команды <code>git amend</code> и <code>git rebase</code>?</p>
+    </section>
+
+    <section class="slide">
+      <h1><small>Попробуем исправиться</small></h1>
+    </section>
+
+    <section class="slide">
+      <h2>Почему история коммитов важна</h2>
+      <ul>
+        <li class="slide">История коммитов - это как оглавление в книге.</li>
+        <li class="slide">Помогает другим понимать содержимое и цель каждого коммита.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Лучшие практики при составлении коммитов</h2>
+      <ul>
+        <li class="slide">
+          <strong>Коммит должен содержать только те изменения, которые к нему относятся.</strong>
+          <p>
+            Исправляя две разные ошибки, вы должны разделить их в отдельные коммиты. <br />
+            Небольшие коммиты проще понять всем остальным.
+          </p>
+        </li>
+        <li class="slide">
+          <strong>Частые коммиты</strong>
+          <p>Это поможет вам создавать небольшие коммиты с одной определенной задачей.</p>
+        </li>
+        <li class="slide">
+          <strong>Не стоит коммитить незаконченный функционал.</strong>
+          <p>
+            Это значит - не нужно создавать коммит в конце рабочего дня лишь для того, чтобы "не потерять" свои изменения.<br />
+            И это вовсе не значит, что нужно коммитить всю задачу (feature) целиком. <br />
+            Нужно просто разбить ее на подзадачи.
+          </p>
+        </li>
+        <li class="slide">
+          <strong>Используйте отдельную ветку для каждой задачи.</strong>
+          <p>Это также поможет выглядеть истории более понятно.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Перечитывайте перед тем, как коммитить</h2>
+      <p class="slide"><code>gid diff</code> - разница в измененных файлах.</p>
+      <p class="slide"><code>gid diff --cached</code> - разница в подготовленных для коммита файлах.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Как составить хорошее описание коммита</h2>
+      <p class="slide">Избегайте использования параметра <code>-m (--message)</code> при создании коммита.</p>
+      <p class="slide">
+        Заголовок коммита должен быть коротким описанием, начинающимся с заглавной буквы, не более 50 символов.<br />
+        Затем следует более детальное описание, отделенное от заголовка пустой строкой.<br />
+        Границы данного описания должны быть в пределах 72 символов.<br />
+      </p>
+      <p class="slide">
+        Пишите сообщения в повелительном наклонении: используя "fix", "change", "add" вместо "fixed", "changed", "added".<br />
+        Это соглашение совпадает с сообщениями, генерируемыми командами git merge и git revert.
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Поэтапное добавление изменений</h2>
+      <p class="slide"><code>git add -p &lt;filename&gt;</code></p>
+      <p class="slide">
+        <code>
+          y - stage this hunk<br />
+          n - do not stage this hunk<br />
+          q - quit; do not stage this hunk nor any of the remaining ones<br />
+          a - stage this hunk and all later hunks in the file<br />
+          d - do not stage this hunk nor any of the later hunks in the file<br />
+          g - select a hunk to go to<br />
+          / - search for a hunk matching the given regex<br />
+          j - leave this hunk undecided, see next undecided hunk<br />
+          J - leave this hunk undecided, see next hunk<br />
+          k - leave this hunk undecided, see previous undecided hunk<br />
+          K - leave this hunk undecided, see previous hunk<br />
+          s - split the current hunk into smaller hunks<br />
+          e - manually edit the current hunk<br />
+          ? - print help<br />
+        </code>
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Слияние с fast forward и без</h2>
+      <p class="slide">
+        <strong>Fast Forward</strong> - переносит указатель в текущей ветке на последний коммит из целевой
+        <br />Поведение <code>git merge</code> по умолчанию
+      </p>
+      <p class="slide">
+        <strong>Без Fast Forward</strong> - явно создаст дополнительный коммит слияния.
+        <br /><code>git merge --no-ff</code>
+      </p>
+    </section>
+
+    <section class="slide">
+      <img src="ff-noff.png" />
+    </section>
+
+    <section class="slide">
+      <h2>Git Rebase</h2>
+      <p>
+        Из справки о git: <br />
+
+        <blockquote>"git-rebase - Forward-port local commits to the updated upstream head"</blockquote>
+      </p>
+
+    </section>
+
+    <section class="slide"><h1><small>Достаточно понятное описание?</small></h1></section>
+    <section class="slide"><h1><small>Конечно, нет =)</small></h1></section>
+
+    <section class="slide">
+      <h2>Git Rebase</h2>
+      <p>
+        Позволяет переписывать историию несколькими способами. <br />
+        Такими, как: перенос коммитов в начало другой ветки, слияние коммитов и их изменение.
+      </p>
+
+      <p class="slide"><code>git rebase master</code></p>
+      <p class="slide"><code>git rebase --interactive commits..range</code></p>
+
+    </section>
+
+    <section class="slide">
+      <h2>Git Rebase --interactive</h2>
+      <pre>
+        <code>
+pick 1fc6c95 Patch A
+pick 6b2481b Patch B
+pick dd1475d something I want to split
+pick c619268 A fix for Patch B
+pick fa39187 something to add to patch A
+pick 4ca2acc i cant' typ goods
+pick 7b36971 something to move before patch B
+
+# Rebase 41a72e6..7b36971 onto 41a72e6
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+# However, if you remove everything, the rebase will be aborted.
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Git Rebase - дополнительная информация</h2>
+      <p class="slide">Не рекомендуется применять rebase к уже опубликованным коммитам.</p>
+      <p class="slide"><code>git pull --rebase</code></p>
+    </section>
+
+    <section class="slide">
+      <h2>Как выглядит (мой) рабочий процесс</h2>
+      <ul>
+        <li class="slide">Для каждой основной задачи содается отдельная ветка, используя <code>git checkout -b имя-ветки</code></li>
+        <li class="slide">Создаются коммиты для каждой небольшой и независимой подзадачи</li>
+        <li class="slide">Если что-то забыли, можно подправить последний коммит, используя <code>git --amend</code></li>
+        <li class="slide">Если изменения нужно провести в нескольких коммитах, поменять их местами или объединить, используем <code>git rebase -i</code></li>
+        <li class="slide">Перед слиянием текущей ветки в основную, производим <code>git rebase имя-основной-ветки</code></li>
+        <li class="slide">Сливаем ветки, используя <code>git merge --no-ff имя-ветки</code>, находясь при этом в основной ветке</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Псевдонимы</h2>
+      <pre>
+        <code>
+# ~/.gitconfig
+
+[alias]
+  st = status
+  co = checkout
+  aa = add --all
+  ff = flow feature
+  l = !~/.githelpers
+  dc = diff --cached
+  rc = rebase --continue
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Псевдонимы</h2>
+      <pre>
+        <code>
+#!/bin/bash
+
+HASH="%C(yellow)%h%C(reset)"
+RELATIVE_TIME="%C(green)%ar%C(reset)"
+AUTHOR="%C(bold blue)%an%C(reset)"
+REFS="%C(red)%d%C(reset)"
+SUBJECT="%s"
+
+FORMAT="$HASH{$RELATIVE_TIME{$AUTHOR{$REFS $SUBJECT"
+
+function pretty_git_log() {
+  git log --graph --pretty="tformat:$FORMAT" $* |
+  column -t -s '{' |
+  less -FXRS
+}
+
+git log --graph --pretty="tformat:$FORMAT" $* | column -t -s '{' | less -FXRS
+        </code>
+      </pre>
+    </section>
+
+    <section class="slide">
+      <h2>Псевдонимы</h2>
+      <h3><code>git l</code></h3>
+      <img src="./git_log.png" />
+    </section>
+
+    <section class="slide">
+      <h1>Бонус</h1>
+    </section>
+
+    <section class="slide">
+      <h2>Git Bisect</h2>
+      <p class="slide"><code>git bisect start</code></p>
+      <p class="slide"><code>git bisect bad            # Помечаем текущую версию, как сломанную</code></p>
+      <p class="slide"><code>git bisect good v1.2.3    # Помечаем коммит с работающей версией</code></p>
+      <p class="slide"><code>...</code></p>
+      <p class="slide"><code>git bisect reset</code></p>
+    </section>
+
+    <section class="slide">
+      <h1>Выводы</h1>
+    </section>
+
+    <section class="slide">
+      <h1>Вопросы</h1>
+    </section>
+
+    <section class="slide">
+      <h2>Полезные ссылки</h2>
+      <ul>
+        <li>http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html</li>
+        <li>http://mislav.uniqpath.com/2013/02/merge-vs-rebase/</li>
+        <li>https://www.atlassian.com/git/tutorials/rewriting-history</li>
+        <li>http://code.tutsplus.com/tutorials/git-tips-from-the-pros--net-29799</li>
+        <li>http://codeinthehole.com/writing/pull-requests-and-other-good-practices-for-teams-using-github/</li>
+      </ul>
     </section>
 
     <p class="deck-status" aria-role="status">
@@ -45,6 +299,7 @@
 <script>
   $(function() {
     $.deck('.slide');
+    $.deck('enableScale');
   });
 </script>
 </body>
