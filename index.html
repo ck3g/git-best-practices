@@ -75,8 +75,8 @@
 
     <section class="slide">
       <h2>Перечитывайте перед тем, как коммитить</h2>
-      <p class="slide"><code>gid diff</code> - разница в измененных файлах.</p>
-      <p class="slide"><code>gid diff --cached</code> - разница в подготовленных для коммита файлах.</p>
+      <p class="slide"><code>git diff</code> - разница в измененных файлах.</p>
+      <p class="slide"><code>git diff --cached</code> - разница в подготовленных для коммита файлах.</p>
     </section>
 
     <section class="slide">
@@ -256,7 +256,7 @@ git log --graph --pretty="tformat:$FORMAT" $* | column -t -s '{' | less -FXRS
       <p class="slide"><code>git bisect start</code></p>
       <p class="slide"><code>git bisect bad            # Помечаем текущую версию, как сломанную</code></p>
       <p class="slide"><code>git bisect good v1.2.3    # Помечаем коммит с работающей версией</code></p>
-      <p class="slide"><code>...</code></p>
+      <p class="slide"><code>... (git show)</code></p>
       <p class="slide"><code>git bisect reset</code></p>
     </section>
 
