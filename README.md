@@ -23,7 +23,7 @@ What's why your logs should be well named and follow a clear description.
   * Don't commit work half-done. This means you should not commit an unfinished feature at the end of working day.
     This also does not mean you should commit a huge complex feature in one commit. Just split it into small chuncks.
 
-  * Use branch per feature. That allows you to group the commits in history.
+  * Use branch per feature. That will allows you to switch between tasks.
 
 ## Read before commit
 
